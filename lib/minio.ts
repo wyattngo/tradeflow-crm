@@ -16,14 +16,17 @@ export async function ensureBucket() {
     await minioClient.makeBucket(BUCKET);
   }
 }
-
 export async function generateUploadUrl(
   objectKey: string,
-  _contentType: string
+  contentType: string
 ): Promise<string> {
-  return minioClient.presignedPutObject(BUCKET, objectKey, 300);
+  const url = await minioClient.presignedPutObject(BUCKET, objectKey, 300);
+  const publicUrl = process.env.MINIO_PUBLIC_URL ?? "http://localhost:9000";
+  return url.replace(/https?:\/\/[^/]+/, publicUrl);
 }
 
 export async function generateDownloadUrl(objectKey: string): Promise<string> {
-  return minioClient.presignedGetObject(BUCKET, objectKey, 3600);
+  const url = await minioClient.presignedGetObject(BUCKET, objectKey, 3600);
+  const publicUrl = process.env.MINIO_PUBLIC_URL ?? "http://localhost:9000";
+  return url.replace(/https?:\/\/[^/]+/, publicUrl);
 }
