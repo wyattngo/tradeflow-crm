@@ -1,0 +1,84 @@
+# ============================================================
+# TradeFlow CRM — .gitignore
+# ============================================================
+
+# ---- Dependencies ----
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# ---- Next.js build output ----
+.next/
+out/
+build/
+dist/
+
+# ---- Environment files (NEVER commit) ----
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.docker
+.env.prod
+# Allow only example/template files
+!.env.example
+!.env.prod.example
+
+# ---- SSH Keys & Secrets (NEVER commit) ----
+deploy_key
+deploy_key.pub
+authorized_keys
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# ---- Docker (local override) ----
+docker-compose.override.yml
+
+# ---- macOS ----
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ---- Logs ----
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+logs/
+cloudflared.log
+
+# ---- TypeScript ----
+*.tsbuildinfo
+next-env.d.ts
+
+# ---- Testing ----
+coverage/
+.nyc_output/
+
+# ---- IDE ----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- Vercel ----
+.vercel
+
+# ---- Misc ----
+*.zip
+*.tar.gz

@@ -1,0 +1,24 @@
+.dockerignore
+node_modules
+npm-debug.log
+.next
+.git
+.gitignore
+README.md
+DEPLOYMENT.md
+.env
+.env.local
+.env.*.local
+.env.docker
+.env.prod
+out
+dist
+build
+.DS_Store
+.vercel
+# SSH keys - never include in Docker image
+deploy_key
+deploy_key.pub
+authorized_keys
+*.pem
+*.key
